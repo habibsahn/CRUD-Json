@@ -1,16 +1,51 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+include 'partials/header.php';
+require 'users/users.php';
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+$users = getUsers();
 
-    <title>CRUD Json</title>
-</head>
-<body>
+?>
 
-</body>
-</html>
+<div class="container">
+    <p>
+        <a class="btn btn-success" href="create.php">Yeni Kullanıcı Oluştur</a>
+    </p>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Fotoğraf</th>
+            <th>İsim</th>
+            <th>Kullanıcı Adı</th>
+            <th>Mail</th>
+            <th>Telefon</th>
+            <th>Web Site</th>
+            <th>#</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php foreach ($users as $user): ?>
+            <tr>
+                <td>
+                    <?php if(isset($user['extension'])): ?>
+                    <img style="width: 60px" src="<?php echo "users/images/{$user['id']}.{$user['extension']}" ?>" alt="Fotoğraf">
+                    <?php endif; ?>
+                </td>
+                <td><?=$user['name']?></td>
+                <td><?=$user['username']?></td>
+                <td><?=$user['email']?></td>
+                <td><?=$user['phone']?></td>
+                <td>
+                    <a target="_blank" href="http://<?=$user['website']?>"><?=$user['website']?></a>
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-outline-info" href="view.php?id=<?=$user['id']?>">Görüntüle</a>
+                    <a class="btn btn-sm btn-outline-secondary" href="update.php?id=<?=$user['id']?>">Güncelle</a>
+                    <a class="btn btn-sm btn-outline-danger" href="delete.php?id=<?=$user['id']?>">Sil</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<?php include 'partials/footer.php'; ?>
