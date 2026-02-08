@@ -1,23 +1,5 @@
 [
     {
-        "id": 4,
-        "name": "Patricia Lebsack 12",
-        "username": "Karianne ",
-        "email": "Julianne.OConner@kory.org",
-        "phone": "123451234 ",
-        "website": "kale.biz ",
-        "extension": "jpg"
-    },
-    {
-        "id": 5,
-        "name": "Chelsey Dietrich4",
-        "username": "Kamren",
-        "email": "Lucio_Hettinger@annie.ca",
-        "phone": "453218563",
-        "website": "demarco.info",
-        "extension": "jpg"
-    },
-    {
         "id": 6,
         "name": "Mrs. Dennis Schulist",
         "username": "Leopoldo_Corkery",
@@ -60,12 +42,12 @@
         "website": "ambrose.net"
     },
     {
-        "name": "John Doe",
-        "username": "john22",
-        "email": "",
-        "phone": "12345",
-        "website": "",
-        "id": 1879571,
-        "extension": "jpg"
+        "name": "User",
+        "username": "username",
+        "email": "user@example.com",
+        "phone": "123451234-2",
+        "website": "user.com",
+        "id": 1371915,
+        "extension": "png"
     }
 ]

@@ -40,7 +40,10 @@ $users = getUsers();
                 <td>
                     <a class="btn btn-sm btn-outline-info" href="view.php?id=<?=$user['id']?>">Görüntüle</a>
                     <a class="btn btn-sm btn-outline-secondary" href="update.php?id=<?=$user['id']?>">Güncelle</a>
-                    <a class="btn btn-sm btn-outline-danger" href="delete.php?id=<?=$user['id']?>">Sil</a>
+                    <form style="display: inline-block" action="delete.php" method="post">
+                        <input type="hidden" name="id" value="<?=$user['id']?>">
+                        <button class="btn btn-sm btn-outline-danger">Sil</button>
+                    </form>
                 </td>
             </tr>
         <?php endforeach; ?>
