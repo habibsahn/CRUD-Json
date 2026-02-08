@@ -80,3 +80,33 @@ function putJson($users)
     file_put_contents(__DIR__ . '/users.json', json_encode($users, JSON_PRETTY_PRINT));
 
 }
+
+function validateUser($user , &$errors)
+{
+    $isValid = true;
+
+    // Doğrulama başlangıç
+    if (!$user['name']) {
+        $isValid = false;
+        $errors['name'] = 'İsim zorunlu alan';
+    }
+
+    if (!$user['username'] || strlen($user['username']) < 6 || strlen($user['username']) > 16) {
+        $isValid = false;
+        $errors['username'] = 'Kullanıcı adı zorunlu ve 6 karakterden küçük 16 karakterden büyük olamaz.';
+    }
+
+    if (!filter_var($user['email'], FILTER_VALIDATE_EMAIL)) {
+        $isValid = false;
+        $errors['email'] = 'Mail adresi zorunlu alan';
+    }
+
+    if (!filter_var($user['phone'], FILTER_VALIDATE_INT)) {
+        $isValid = false;
+        $errors['phone'] = 'Telefon numarası zorunlu alan';
+    }
+
+    // Doğrulama bitiş
+
+    return $isValid;
+}

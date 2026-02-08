@@ -14,19 +14,31 @@
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>İsim</label>
-                    <input type="text" name="name" value="<?= $user['name'] ?>" class="form-control">
+                    <input type="text" name="name" value="<?= $user['name'] ?>" class="form-control <?php echo $errors['name'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo $errors['name'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Kullanıcı Adı</label>
-                    <input type="text" name="username" value="<?= $user['username'] ?>" class="form-control">
+                    <input type="text" name="username" value="<?= $user['username'] ?>" class="form-control <?php echo $errors['username'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo $errors['username'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Mail</label>
-                    <input type="email" name="email" value="<?= $user['email'] ?>" class="form-control">
+                    <input type="email" name="email" value="<?= $user['email'] ?>" class="form-control  <?php echo $errors['username'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo $errors['email'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Telefon Numarası</label>
-                    <input type="text" name="phone" value="<?= $user['phone'] ?>" class="form-control">
+                    <input type="text" name="phone" value="<?= $user['phone'] ?>" class="form-control  <?php echo $errors['username'] ? 'is-invalid' : '' ?>">
+                    <div class="invalid-feedback">
+                        <?php echo $errors['phone'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label>Web Sitesi</label>
